@@ -22,199 +22,31 @@ img, iframe, table, video {
   height: auto;
 }
 
-.payment-section {
-  max-width: 900px;
-  margin: 50px auto 0 auto;
+.coming-soon-container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 60px 20px;
+  text-align: center;
   background: rgba(20, 20, 30, 0.75);
   border: 1px solid rgba(167, 139, 250, 0.3);
   border-radius: 16px;
-  padding: 32px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8px);
 }
 
-.payment-section-title {
-  text-align: center;
-  margin-bottom: 24px;
-}
-
-.payment-section-title h3 {
+.coming-soon-container h2 {
   font-family: 'Silkscreen', cursive;
   color: #a78bfa;
-  font-size: 1.6rem;
-  margin-bottom: 8px;
+  font-size: 2.2rem;
+  margin-bottom: 16px;
 }
 
-.payment-section-title p {
+.coming-soon-container p {
   color: #ccc;
-  font-size: 0.95rem;
-}
-
-.payment-methods-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  margin-top: 24px;
-}
-
-.payment-card {
-  background: rgba(10, 10, 18, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.payment-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(167, 139, 250, 0.5);
-}
-
-.payment-card-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.payment-icon {
-  font-size: 1.5rem;
-  width: 42px;
-  height: 42px;
-  background: rgba(167, 139, 250, 0.15);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #a78bfa;
-}
-
-.payment-card-header h4 {
-  margin: 0;
-  font-family: 'Space Grotesk', sans-serif;
-  color: #fff;
   font-size: 1.1rem;
-}
-
-.payment-card p {
-  color: #aaa;
-  font-size: 0.88rem;
-  line-height: 1.4;
-  margin: 0;
-}
-
-.payment-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 4px;
-}
-
-.payment-tag {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #ddd;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.upi-box {
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px dashed rgba(167, 139, 250, 0.4);
-  border-radius: 12px;
-  padding: 20px;
-  margin-top: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  text-align: center;
-}
-
-.upi-qr img {
-  border: 4px solid #ffffff;
-  border-radius: 8px;
-  background: #ffffff;
-}
-
-.upi-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 8px 16px;
-  border-radius: 8px;
-}
-
-.btn-copy {
-  background: #a78bfa;
-  color: #000;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-  font-family: 'Space Grotesk', sans-serif;
-}
-
-.btn-copy:hover {
-  background: #c4b5fd;
-}
-
-.purchase-steps {
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.purchase-steps h4 {
-  font-family: 'Silkscreen', cursive;
-  color: #a78bfa;
-  font-size: 1.1rem;
-  margin-bottom: 12px;
-  text-align: center;
-}
-
-.steps-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-}
-
-.step-item {
-  background: rgba(0, 0, 0, 0.3);
-  padding: 14px;
-  border-radius: 8px;
-  border-left: 3px solid #a78bfa;
-}
-
-.step-number {
-  color: #a78bfa;
-  font-weight: bold;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.step-desc {
-  color: #ccc;
-  font-size: 0.85rem;
-  margin: 0;
-}
-
-@media (max-width: 600px) {
-  .payment-section {
-    padding: 20px 16px;
-  }
-  .upi-info {
-    flex-direction: column;
-    gap: 8px;
-  }
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
 }
 </style>
 </head>
@@ -243,135 +75,15 @@ img, iframe, table, video {
 <section class="page-hero">
   <div class="eyebrow">Support The Server</div>
   <h1 class="pixel">Store</h1>
-  <p>Cosmetic and convenience perks — nothing here wins you a fight. Flexible payments handled seamlessly via Discord & direct methods.</p>
+  <p>Cosmetic and convenience perks — stay tuned for official rank launches!</p>
 </section>
 
 <!-- STORE -->
 <section id="store-section">
-  <div class="store-grid">
-    <div class="tier-card tier-vip reveal">
-      <div class="tier-badge">Tier 01</div>
-      <div class="tier-name">VIP</div>
-      <div class="tier-price">₹230</div>
-      <p class="tier-perk">Colored name tag, a VIP-only kit, and priority queue when the server's packed.</p>
-      <a class="tier-btn" href="https://discord.gg/vQBeGj7jYq" target="_blank" rel="noopener">Get VIP</a>
-    </div>
-    <div class="tier-card tier-vipplus reveal">
-      <div class="tier-badge">Tier 02</div>
-      <div class="tier-name">VIP+</div>
-      <div class="tier-price">₹460</div>
-      <p class="tier-perk">Everything in VIP, plus extra homes, a particle trail, and access to the VIP+ cosmetics locker.</p>
-      <a class="tier-btn" href="https://discord.gg/vQBeGj7jYq" target="_blank" rel="noopener">Get VIP+</a>
-    </div>
-    <div class="tier-card tier-prime reveal">
-      <div class="tier-badge">Tier 03 · Top Rank</div>
-      <div class="tier-name">PRIME</div>
-      <div class="tier-price">₹890</div>
-      <p class="tier-perk">Everything below, plus moderator-level in-game controls — kick and mute powers to help keep chat clean.</p>
-      <a class="tier-btn" href="https://discord.gg/vQBeGj7jYq" target="_blank" rel="noopener">Get PRIME</a>
-    </div>
+  <div class="coming-soon-container reveal">
+    <h2>Coming Soon</h2>
+    <p>Our store is currently under construction. Ranks, perks, and payment methods will be available shortly. Join our Discord server to get updates when the store officially launches!</p>
   </div>
-
-  <!-- OVERHAULED PAYMENT METHODS SECTION -->
-  <div class="payment-section reveal">
-    <div class="payment-section-title">
-      <h3>Supported Payment Methods</h3>
-      <p>We support a wide variety of domestic and international payment options for your convenience.</p>
-    </div>
-
-    <div class="payment-methods-grid">
-      <!-- UPI & Instant Mobile Apps -->
-      <div class="payment-card">
-        <div class="payment-card-header">
-          <div class="payment-icon">⚡</div>
-          <h4>UPI & Apps</h4>
-        </div>
-        <p>Instant transfer with zero fees via any UPI app or provider in India.</p>
-        <div class="payment-tags">
-          <span class="payment-tag">Google Pay</span>
-          <span class="payment-tag">PhonePe</span>
-          <span class="payment-tag">Paytm</span>
-          <span class="payment-tag">BHIM</span>
-        </div>
-      </div>
-
-      <!-- Credit / Debit Cards -->
-      <div class="payment-card">
-        <div class="payment-card-header">
-          <div class="payment-icon">💳</div>
-          <h4>Cards & International</h4>
-        </div>
-        <p>Domestic and international card payments supported through manual invoice / Stripe link via Discord tickets.</p>
-        <div class="payment-tags">
-          <span class="payment-tag">Visa</span>
-          <span class="payment-tag">Mastercard</span>
-          <span class="payment-tag">RuPay</span>
-        </div>
-      </div>
-
-      <!-- Net Banking & Wallets -->
-      <div class="payment-card">
-        <div class="payment-card-header">
-          <div class="payment-icon">🏦</div>
-          <h4>NetBanking & Wallets</h4>
-        </div>
-        <p>Direct bank transfers or digital wallet balances supported upon opening a purchase ticket.</p>
-        <div class="payment-tags">
-          <span class="payment-tag">All Major Banks</span>
-          <span class="payment-tag">Paytm Wallet</span>
-        </div>
-      </div>
-
-      <!-- Crypto / Gift Cards -->
-      <div class="payment-card">
-        <div class="payment-card-header">
-          <div class="payment-icon">🌐</div>
-          <h4>Alternative / Crypto</h4>
-        </div>
-        <p>Need to pay with Crypto or digital gift cards? Contact staff directly on Discord.</p>
-        <div class="payment-tags">
-          <span class="payment-tag">USDT</span>
-          <span class="payment-tag">Crypto</span>
-          <span class="payment-tag">Gift Cards</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Quick UPI Box -->
-    <div class="upi-box">
-      <h4 style="margin: 0; font-family: 'Silkscreen', cursive; color: #a78bfa; font-size: 1.1rem;">Quick Pay via Instant UPI</h4>
-      <p style="margin: 0; color: #ccc; font-size: 0.9rem;">Scan below or copy the UPI ID for direct transactions:</p>
-      
-      <div class="upi-qr">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=upi://pay?pa=YOUR_UPI_ID@upi%26pn=EnderSMP" alt="UPI QR Code">
-      </div>
-      <div class="upi-info">
-        <p style="margin: 0;"><strong>UPI ID:</strong> <span id="upi-id">YOUR_UPI_ID@upi</span></p>
-        <button type="button" class="btn-copy" onclick="copyUPI()">Copy UPI ID</button>
-      </div>
-    </div>
-
-    <!-- How it works steps -->
-    <div class="purchase-steps">
-      <h4>How to Claim Your Rank</h4>
-      <div class="steps-list">
-        <div class="step-item">
-          <div class="step-number">Step 1</div>
-          <div class="step-desc">Choose your desired rank tier and complete payment via UPI, Card, or Discord ticket.</div>
-        </div>
-        <div class="step-item">
-          <div class="step-number">Step 2</div>
-          <div class="step-desc">Open a payment ticket in our official Discord server.</div>
-        </div>
-        <div class="step-item">
-          <div class="step-number">Step 3</div>
-          <div class="step-desc">Attach your payment screenshot/reference ID and in-game Minecraft username. Staff will activate your rank!</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <p class="store-note" style="margin-top: 30px;">All purchases are processed with staff support — open a ticket on Discord and our team will rank you up swiftly.</p>
 </section>
 
 <!-- CTA -->
@@ -392,12 +104,5 @@ img, iframe, table, video {
 </footer>
 
 <script src="assets/js/main.js"></script>
-<script>
-function copyUPI() {
-  const upiId = document.getElementById("upi-id").innerText;
-  navigator.clipboard.writeText(upiId);
-  alert("UPI ID copied to clipboard!");
-}
-</script>
 </body>
 </html>

@@ -40,10 +40,6 @@ img, iframe, table, video {
   color: #ff3333; /* Default offline */
   transition: color 0.3s ease;
 }
-.server-ip-text {
-  font-weight: 600;
-  color: #a78bfa;
-}
 @media (max-width: 768px) {
   .server-status-widget {
     flex-direction: column;
@@ -87,9 +83,9 @@ img, iframe, table, video {
   <img class="hero-logo" src="assets/logo.png" alt="Ender SMP">
   <p class="sub">A survival SMP where the Ender Dragon is the least of your problems. Custom loot, real economy, and a staff team that only griefs the End cities (allegedly).</p>
 
-  <!-- Live Server Status Widget -->
+  <!-- Live Server Status Widget (IP display removed) -->
   <div class="server-status-widget">
-    <span><span class="status-indicator" id="server-indicator">●</span> <span class="server-ip-text">playendersmp.gbnodes.host</span></span>
+    <span><span class="status-indicator" id="server-indicator">●</span> Server Status</span>
     <span>Players: <strong id="player-count">-- / --</strong></span>
   </div>
 
@@ -179,7 +175,7 @@ img, iframe, table, video {
 <script src="assets/js/main.js"></script>
 <script>
 async function fetchServerStatus() {
-  const ip = "playendersmp.gbnodes.host";
+  const ip = "ip53.range.ncr.gbnodes.host:25616";
   const countEl = document.getElementById("player-count");
   const indicatorEl = document.getElementById("server-indicator");
 

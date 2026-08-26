@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Store — Ender SMP</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+/* UPI & Responsive Styling */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+img, iframe, table, video {
+  max-width: 100%;
+  height: auto;
+}
+.upi-payment-section {
+  max-width: 600px;
+  margin: 40px auto 0 auto;
+  background: rgba(20, 20, 30, 0.7);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+.upi-payment-section h3 {
+  font-family: 'Silkscreen', cursive;
+  color: #a78bfa;
+  margin-bottom: 8px;
+}
+.upi-payment-section p {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+.upi-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.upi-qr img {
+  border: 4px solid #ffffff;
+  border-radius: 8px;
+  background: #ffffff;
+}
+.upi-info {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 12px 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.btn-copy {
+  background: #a78bfa;
+  color: #000;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-copy:hover {
+  background: #c4b5fd;
+}
+@media (max-width: 600px) {
+  .upi-info {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+</style>
+</head>
+<body data-page="store">
+
+<div id="particles"></div>
+
+<header>
+  <div class="logo">
+    <a href="/"><img src="assets/logo.png" alt="Ender SMP logo"></a>
+  </div>
+  <div class="nav-links">
+    <nav>
+      <ul>
+        <li><a href="/" data-page="home">Home</a></li>
+        <li><a href="/about" data-page="about">About</a></li>
+        <li><a href="/gallery" data-page="gallery">Gallery</a></li>
+        <li><a href="/store" data-page="store">Store</a></li>
+      </ul>
+    </nav>
+  </div>
+  <a class="nav-cta" href="https://discord.gg/vQBeGj7jYq" target="_blank" rel="noopener">Join Discord</a>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="eyebrow">Support The Server</div>
+  <h1 class="pixel">Store</h1>
+  <p>Cosmetic and convenience perks — nothing here wins you a fight. Payments handled through Discord & UPI.</p>
+</section>
+
+<!-- STORE -->
+<section id="store-section">
+  <div class="store-grid">
+    <div class="tier-card tier-vip reveal">
+      <div class="tier-badge">Tier 01</div>
+      <div class="tier-name">VIP</div>
+      <div class="tier-price">₹230</div>
+      <p class="tier-perk">Colored name tag, a VIP-only kit, and priority queue when the server's packed.</p>
+      <a class="tier-btn" href="https://discord.gg/vQBeGj7jYq" target="_blank" rel="noopener">Get VIP</a>
+    </div>
+    <div class="tier-card tier-vipplus reveal">
+      <div class="tier-badge">Tier 02</div>
+      <div class="tier-name">VIP+</div>
+      <div class="tier-price">₹460</div>
+      <p class="tier-perk">Everything in VIP, plus extra homes, a particle trail, and access to the VIP+ cosmetics locker.</p>
+      <a class="tier-btn" href="https://discord.gg/vQBeGj7jYq" target="_blank" rel="noopener">Get VIP+</a>
+    </div>
+    <div class="tier-card tier-prime reveal">
+      <div class="tier-badge">Tier 03 · Top Rank</div>
+      <div class="tier-name">PRIME</div>
+      <div class="tier-price">₹890</div>
+      <p class="tier-perk">Everything below, plus moderator-level in-game controls — kick and mute powers to help keep chat clean.</p>
+      <a class="tier-btn" href="https://discord.gg/vQBeGj7jYq" target="_blank" rel="noopener">Get PRIME</a>
+    </div>
+  </div>
+
+  <!-- UPI Payment Section -->
+  <div class="upi-payment-section reveal">
+    <h3>Pay via UPI</h3>
+    <p>Scan the QR code below or use the UPI ID to pay. Afterwards, open a ticket on Discord with your payment screenshot.</p>
+
+    <div class="upi-details">
+      <div class="upi-qr">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=YOUR_UPI_ID@upi%26pn=EnderSMP" alt="UPI QR Code">
+      </div>
+      <div class="upi-info">
+        <p style="margin: 0;"><strong>UPI ID:</strong> <span id="upi-id">YOUR_UPI_ID@upi</span></p>
+        <button type="button" class="btn-copy" onclick="copyUPI()">Copy UPI ID</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="store-note">All purchases are handled manually through our Discord — open a ticket after paying and staff will rank you up.</p>
+</section>
+
+<!-- CTA -->
+<div class="cta-band reveal">
+  <h2 class="pixel">Ready to fall in?</h2>
+  <p>Join the Discord, grab the IP, and we'll see you on the other side of the portal.</p>
+  <a class="discord-cta" href="https://discord.gg/vQBeGj7jYq" target="_blank" rel="noopener">Join the Discord →</a>
+</div>
+
+<footer>
+  <span>© 2026 Ender SMP · Not affiliated with Mojang or Microsoft</span>
+  <div class="footer-links">
+    <a href="https://discord.gg/vQBeGj7jYq" target="_blank" rel="noopener">Discord</a>
+    <a href="store.html">Store</a>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+function copyUPI() {
+  const upiId = document.getElementById("upi-id").innerText;
+  navigator.clipboard.writeText(upiId);
+  alert("UPI ID copied to clipboard!");
+}
+</script>
+</body>
+</html>

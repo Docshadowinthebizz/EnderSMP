@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ender SMP - Official website</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+/* Responsive & Server Status Extra Styling */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+img, iframe, table, video {
+  max-width: 100%;
+  height: auto;
+}
+.server-status-widget {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-top: 15px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  color: #fff;
+}
+.status-indicator {
+  font-size: 1.2rem;
+  line-height: 1;
+  color: #ff3333; /* Default offline */
+  transition: color 0.3s ease;
+}
+@media (max-width: 768px) {
+  .server-status-widget {
+    flex-direction: column;
+    font-size: 0.85rem;
+    text-align: center;
+    gap: 4px;
+    padding: 10px 14px;
+  }
+}
+</style>
+</head>
+<body data-page="home">
+
+<div id="particles"></div>
+
+<header>
+  <div class="logo">
+    <a href="/home"><img src="assets/logo.png" alt="Ender SMP logo"></a>
+  </div>
+  <div class="nav-links">
+    <nav>
+      <ul>
+        <li><a href="/home" data-page="home">Home</a></li>
+        <li><a href="/about" data-page="about">About</a></li>
+        <li><a href="/gallery" data-page="gallery">Gallery</a></li>
+        <li><a href="/store" data-page="store">Store</a></li>
+      </ul>
+    </nav>
+  </div>
+  <a class="nav-cta" href="https://discord.gg/vQBeGj7jYq" target="_blank" rel="noopener">Join Discord</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">Java Edition · 26.2 [ Also Any version from 1.14 ] · Whitelist-free</div>
+  <div class="portal-wrap">
+    <div class="portal-frame">
+      <div class="portal-inner"></div>
+    </div>
+  </div>
+  <img class="hero-logo" src="assets/logo.png" alt="Ender SMP">
+  <p class="sub">A survival SMP where the Ender Dragon is the least of your problems. Custom loot, real economy, and a staff team that only griefs the End cities (allegedly).</p>
+
+  <!-- Live Server Status Widget (IP display removed) -->
+  <div class="server-status-widget">
+    <span><span class="status-indicator" id="server-indicator">●</span> Server Status</span>
+    <span>Players: <strong id="player-count">-- / --</strong></span>
+  </div>
+
+  <br>
+
+  <a class="discord-cta" href="https://discord.gg/vQBeGj7jYq" target="_blank" rel="noopener">
+    Get the Server IP on Discord →
+  </a>
+
+  <div class="hero-meta">
+    <span><span class="dot-live"></span><b>Online now</b> — join the void</span>
+    <span>Founded <b>2026</b></span>
+    <span>Uptime <b>90.00%</b> (the 10.00% was the host's fault)</span>
+  </div>
+</section>
+
+<!-- IP SECTION -->
+<section class="ip-section" id="ip">
+  <div class="ip-panel reveal">
+    <div class="eyebrow">Server Address</div>
+    <h2>The IP lives in Discord.</h2>
+    <p>We keep the connect IP posted (and kept current) in our Discord instead of hard-coding it on the site — hosts change, ports change, and this way it's never stale. Hop in, check <b style="color:var(--crystal)">#server-info</b>, and you're two clicks from spawn.</p>
+    <a class="discord-cta" href="https://discord.gg/vQBeGj7jYq" target="_blank" rel="noopener">Open Discord →</a>
+    <div class="ip-faq">
+      <b>Why not just post it here?</b> Keeps the site static and the IP always accurate — no more "the website still says the old IP" tickets.
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-head reveal">
+    <div class="eyebrow">Who Runs This Thing</div>
+    <h2>The staff team</h2>
+    <p>Volunteers, mostly. Payment is in vibes and occasional shulker shells.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="avatar" style="background-image:url('assets/staff-shadownight6.png')"></div>
+      <h3>Shadownight6</h3>
+      <div class="role">Founder</div>
+      <div class="divider"></div>
+      <span class="handle">_shadownight6_</span>
+    </div>
+    <div class="team-card reveal">
+      <div class="avatar" style="background-image:url('assets/staff-ghostmc.png')"></div>
+      <h3>Ghost MC</h3>
+      <div class="role">Co-Founder</div>
+      <div class="divider"></div>
+      <span class="handle">ghost_mc_</span>
+    </div>
+    <div class="team-card reveal">
+      <div class="avatar" style="background-image:url('assets/staff-amixhh.png')"></div>
+      <h3>amixhh</h3>
+      <div class="role">Lead Dev</div>
+      <div class="divider"></div>
+      <span class="handle">amixhhh</span>
+    </div>
+    <div class="team-card reveal">
+      <div class="avatar" style="background-image:url('assets/staff-quiffrey.png')"></div>
+      <h3>Quiffrey</h3>
+      <div class="role">Lead Designer</div>
+      <div class="divider"></div>
+      <span class="handle">cheeseeeeee0214</span>
+    </div>
+  </div>
+  <p class="team-note reveal">Follow the team on Discord — <a href="https://discord.gg/vQBeGj7jYq" target="_blank" rel="noopener">discord.gg/vQBeGj7jYq</a></p>
+</section>
+
+<!-- CTA -->
+<div class="cta-band reveal">
+  <h2 class="pixel">Ready to fall in?</h2>
+  <p>Join the Discord, grab the IP, and we'll see you on the other side of the portal.</p>
+  <a class="discord-cta" href="https://discord.gg/vQBeGj7jYq" target="_blank" rel="noopener">Join the Discord →</a>
+</div>
+
+<footer>
+  <span>© 2026 Ender SMP · Not affiliated with Mojang or Microsoft</span>
+  <div class="footer-links">
+    <a href="https://discord.gg/vQBeGj7jYq" target="_blank" rel="noopener">Discord</a>
+    <a href="store.html">Store</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+async function fetchServerStatus() {
+  const ip = "ip53.range.ncr.gbnodes.host:25616";
+  const countEl = document.getElementById("player-count");
+  const indicatorEl = document.getElementById("server-indicator");
+
+  try {
+    const response = await fetch(`https://api.mcsrvstat.us/2/${ip}`);
+    const data = await response.json();
+
+    if (data.online) {
+      countEl.textContent = `${data.players.online} / ${data.players.max}`;
+      indicatorEl.style.color = "#00ff66";
+    } else {
+      countEl.textContent = "Offline";
+      indicatorEl.style.color = "#ff3333";
+    }
+  } catch (error) {
+    countEl.textContent = "Offline";
+    indicatorEl.style.color = "#ff3333";
+  }
+}
+
+fetchServerStatus();
+setInterval(fetchServerStatus, 30000);
+</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staff Portal — Ender SMP</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/staff-config.js"></script>
+<script src="assets/js/staff-auth.js"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<style>
+  .portal-wrap-login{
+    min-height: 100vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    padding: 100px 6vw;
+    position:relative; z-index:2;
+  }
+  .portal-panel{
+    max-width: 420px;
+    width:100%;
+    background: rgba(34,16,63,0.5);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 2.6rem 2.2rem;
+    box-shadow: 0 0 60px rgba(168,85,247,0.18);
+  }
+  .portal-panel h1{
+    font-size: 1.5rem;
+    margin: 1rem 0 0.6rem;
+  }
+  .portal-panel p{
+    color: var(--lilac-dim);
+    font-size: 0.9rem;
+    margin-bottom: 1.8rem;
+  }
+  #google-btn-wrap{
+    display:flex; justify-content:center;
+    margin-bottom: 1.4rem;
+  }
+  #login-status{
+    font-size: 0.85rem;
+    min-height: 1.4em;
+    color: var(--lilac-dim);
+  }
+  .back-link{
+    display:inline-block;
+    margin-top: 1.8rem;
+    font-size: 0.82rem;
+    color: var(--lilac-dim);
+    text-decoration: underline;
+  }
+  .back-link:hover{ color: var(--magenta); }
+</style>
+</head>
+<body data-page="staff-login">
+
+<div id="particles"></div>
+
+<div class="portal-wrap-login">
+  <div class="portal-panel reveal">
+    <div class="eyebrow">Staff Only</div>
+    <h1 class="pixel">Staff Portal</h1>
+    <p>Sign in with the Gmail account on file. Access is limited to approved staff — your password never touches this site, Google handles that part.</p>
+
+    <div id="google-btn-wrap">
+      <div id="g_id_signin"></div>
+    </div>
+
+    <div id="login-status"></div>
+
+    <a class="back-link" href="maintenance.html">← Back to maintenance page</a>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+<script>
+  window.onload = function () {
+    const statusEl = document.getElementById("login-status");
+
+    if (typeof GOOGLE_CLIENT_ID === "undefined" || GOOGLE_CLIENT_ID.indexOf("PASTE-YOUR") === 0) {
+      statusEl.textContent = "Staff login isn't configured yet — set GOOGLE_CLIENT_ID in staff-config.js.";
+      statusEl.style.color = "#ff6b6b";
+      return;
+    }
+
+    if (typeof google === "undefined" || !google.accounts) {
+      statusEl.textContent = "Couldn't load Google Sign-In. Check your connection or ad-blocker and refresh.";
+      statusEl.style.color = "#ff6b6b";
+      return;
+    }
+
+    try {
+      google.accounts.id.initialize({
+        client_id: GOOGLE_CLIENT_ID,
+        callback: handleGoogleSignIn
+      });
+      google.accounts.id.renderButton(
+        document.getElementById("g_id_signin"),
+        { theme: "filled_black", size: "large", shape: "pill", text: "signin_with" }
+      );
+    } catch (err) {
+      statusEl.textContent = "Sign-in failed to initialize. Please refresh and try again.";
+      statusEl.style.color = "#ff6b6b";
+    }
+  };
+</script>
+</body>
+</html>

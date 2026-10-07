@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How to join | Ender SMP</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Silkscreen&display=swap">
+<style>
+/* Layout concept: left-aligned pages with ruled sections and hard pixel shadows; the logo carries the hero. */
+:root {
+  --bg: #110c1b;
+  --bg-2: #181027;
+  --surface: #1e1530;
+  --line: #33264d;
+  --ink: #efeaf8;
+  --muted: #a79bc2;
+  --accent: #b765ff;
+  --accent-ink: #14091f;
+  --stone: #e3d9a3;
+  --shadow: #05030a;
+  --glow: #34194f;
+  --display: "Silkscreen", "Courier New", monospace;
+  --body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f5f2fb;
+    --bg-2: #ebe6f6;
+    --surface: #ffffff;
+    --line: #d6cce8;
+    --ink: #1b1230;
+    --muted: #5f5478;
+    --accent: #8426d4;
+    --accent-ink: #ffffff;
+    --stone: #6b5f1d;
+    --shadow: #cfc3e6;
+    --glow: #e0d0f6;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #f5f2fb;
+  --bg-2: #ebe6f6;
+  --surface: #ffffff;
+  --line: #d6cce8;
+  --ink: #1b1230;
+  --muted: #5f5478;
+  --accent: #8426d4;
+  --accent-ink: #ffffff;
+  --stone: #6b5f1d;
+  --shadow: #cfc3e6;
+  --glow: #e0d0f6;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 1rem/1.65 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--stone);
+  outline-offset: 3px;
+}
+.wrap { max-width: 68rem; margin-inline: auto; padding-inline: 1rem; }
+
+/* Header */
+.site-head {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 1.25rem;
+  padding-block: 0.6rem;
+}
+.brand { display: block; line-height: 0; }
+.brand img { height: 2.6rem; width: auto; }
+.site-nav {
+  display: flex;
+  gap: 0.15rem;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.45rem 0.7rem;
+  border-bottom: 2px solid transparent;
+  font-weight: 500;
+}
+.site-nav a:hover { color: var(--ink); }
+.site-nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--accent); }
+.bar .btn { padding: 0.5rem 0.9rem; font-size: 0.9rem; }
+@media (max-width: 760px) {
+  .site-nav { order: 3; flex-basis: 100%; }
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.8rem 1.35rem;
+  border: 2px solid var(--accent);
+  border-radius: 2px;
+  box-shadow: 4px 4px 0 var(--shadow);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  cursor: pointer;
+  font-family: var(--body);
+  font-size: 1rem;
+}
+.btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--shadow); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn.ghost:hover { border-color: var(--accent); }
+.cta-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+
+/* Hero */
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: radial-gradient(ellipse at 85% 0%, var(--glow), transparent 62%), var(--bg);
+}
+.hero canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.hero .wrap { position: relative; padding-block: clamp(2.5rem, 7vw, 5rem); }
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin: 0 0 1.25rem;
+}
+.logo-h1 { margin: 0; line-height: 0; }
+.logo-h1 img { width: min(30rem, 100%); }
+.lede {
+  max-width: 38rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  margin: 1.5rem 0 0;
+}
+
+/* Sections */
+.sec { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+.sec.alt { background: var(--bg-2); border-block: 1px solid var(--line); }
+h2 {
+  font-family: var(--display);
+  font-size: clamp(1.35rem, 3.6vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  text-wrap: balance;
+  margin: 0 0 0.75rem;
+}
+h3 { font-size: 1.15rem; margin: 0 0 0.4rem; line-height: 1.3; }
+.sec-intro { color: var(--muted); max-width: 40rem; margin: 0 0 2rem; }
+p { margin: 0 0 1rem; }
+
+.page-head {
+  padding-block: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 4vw, 2.5rem);
+  border-bottom: 1px solid var(--line);
+  background: radial-gradient(ellipse at 90% 0%, var(--glow), transparent 60%), var(--bg);
+}
+.page-head h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 6vw, 3.2rem);
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+  text-wrap: balance;
+  margin: 0 0 1rem;
+}
+.page-head .lede { margin-top: 0; }
+
+/* Pillars and grids */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 2rem;
+}
+.grid.four { grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
+.pillar { border-top: 3px solid var(--accent); padding-top: 1rem; min-width: 0; }
+.pillar p { color: var(--muted); margin: 0; }
+.pillar.stone { border-top-color: var(--stone); }
+.pillar.plain { border-top-color: var(--line); }
+
+/* Vanilla spectrum */
+.spectrum { position: relative; margin-top: 3rem; padding-top: 2.4rem; max-width: 46rem; }
+.track {
+  height: 0.9rem;
+  background: linear-gradient(90deg, var(--stone), var(--accent));
+  border: 2px solid var(--line);
+}
+.marker {
+  position: absolute;
+  left: 28%;
+  top: 0;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 0.2rem 0.5rem;
+  white-space: nowrap;
+}
+.marker::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 2px;
+  height: 0.9rem;
+  margin-left: -1px;
+  background: var(--accent);
+}
+.ends {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Split layout and definition list */
+.split { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: start; }
+.split > * { min-width: 0; }
+@media (min-width: 800px) { .split { grid-template-columns: 1fr 1.1fr; gap: 3.5rem; } }
+.glance { display: grid; grid-template-columns: minmax(6.5rem, 11rem) 1fr; margin: 0; }
+.glance dt, .glance dd { padding: 0.85rem 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.glance dt:first-of-type, .glance dd:first-of-type { border-top: 1px solid var(--line); }
+.glance dt {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-right: 1rem;
+  padding-top: 1.05rem;
+}
+.glance dd { margin: 0; }
+
+/* Band */
+.band { background: var(--surface); border-top: 1px solid var(--line); }
+.band .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block: 2.5rem;
+}
+.band p { font-size: 1.2rem; font-weight: 500; margin: 0; max-width: 34rem; }
+
+/* Rules and FAQ */
+.rules { max-width: 46rem; border-bottom: 1px solid var(--line); }
+details.rule { border-top: 1px solid var(--line); }
+details.rule summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 1.05rem 0;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+details.rule summary::-webkit-details-marker { display: none; }
+details.rule summary::after { content: "+"; margin-left: auto; font-family: var(--mono); color: var(--muted); }
+details.rule[open] summary::after { content: "\2013"; }
+.rn { font-family: var(--mono); color: var(--accent); min-width: 2.2ch; font-size: 0.9rem; }
+details.rule p { margin: 0 0 1.1rem 3.2rem; color: var(--muted); max-width: 40rem; }
+details.faq p { margin-left: 0; }
+.note { color: var(--muted); font-size: 0.95rem; max-width: 46rem; margin-top: 1.5rem; }
+
+/* Steps */
+ol.steps { list-style: none; counter-reset: s; display: grid; gap: 2rem; padding: 0; margin: 0; max-width: 46rem; }
+ol.steps li { display: grid; grid-template-columns: auto 1fr; gap: 1.25rem; counter-increment: s; }
+ol.steps li::before {
+  content: counter(s);
+  font-family: var(--display);
+  font-size: 1.5rem;
+  color: var(--accent);
+  border: 2px solid var(--line);
+  background: var(--surface);
+  width: 3.2rem;
+  height: 3.2rem;
+  display: grid;
+  place-items: center;
+}
+ol.steps li > div { min-width: 0; }
+ol.steps p { color: var(--muted); margin: 0 0 0.75rem; }
+
+/* Discord card */
+.discord-card {
+  border: 2px solid var(--accent);
+  background: var(--surface);
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  box-shadow: 6px 6px 0 var(--shadow);
+  max-width: 46rem;
+}
+.discord-card h2 { margin-bottom: 0.5rem; }
+.discord-card p { color: var(--muted); }
+.link-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-top: 1.25rem; }
+code.link {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  word-break: break-all;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 0.55rem 0.8rem;
+  min-width: 0;
+}
+.copy-status { font-family: var(--mono); font-size: 0.78rem; color: var(--stone); min-height: 1.2em; margin: 0.5rem 0 0; }
+ul.ticks { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.9rem; max-width: 40rem; }
+ul.ticks li { padding-left: 1.6rem; position: relative; }
+ul.ticks li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 0.6rem;
+  height: 0.6rem;
+  background: var(--accent);
+  box-shadow: 0.25rem 0.25rem 0 var(--stone);
+}
+
+/* Footer */
+.foot { border-top: 1px solid var(--line); background: var(--bg-2); }
+.foot .wrap { display: grid; gap: 1.25rem; padding-block: 2.5rem; }
+.foot nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+.foot nav a { color: var(--muted); text-decoration: none; }
+.foot nav a:hover { color: var(--ink); }
+.foot small { color: var(--muted); max-width: 46rem; line-height: 1.6; }
+.foot .brand img { height: 3rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}
+
+</style>
+</head>
+<body>
+<header class="site-head">
+<div class="wrap bar">
+<a class="brand" href="index.html" aria-label="Ender SMP home"><img src="logo.png" alt="Ender SMP" width="1024" height="491"></a>
+<nav class="site-nav" aria-label="Main"><a href="index.html">Home</a><a href="features.html">Features</a><a href="rules.html">Rules</a><a href="join.html" aria-current="page">How to join</a><a href="discord.html">Discord</a></nav>
+<a class="btn" href="https://discord.gg/aFs7jXPnTN" target="_blank" rel="noopener">Join Discord</a>
+</div>
+</header>
+<main>
+<section class="page-head">
+<div class="wrap">
+<h1>How to join</h1>
+<p class="lede">Four steps, no riddles, no ender dragon required. Most people are in the world within a few minutes.</p>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap">
+<ol class="steps">
+<li><div><h3>Join our Discord</h3><p>Everything starts here. It is where the community lives and where the server details are shared.</p><a class="btn" href="https://discord.gg/aFs7jXPnTN" target="_blank" rel="noopener">Open the invite</a></div></li>
+<li><div><h3>Read the rules</h3><p>It takes about two minutes and saves everyone a lot of awkward conversations later.</p><a class="btn ghost" href="rules.html">Read the rules</a></div></li>
+<li><div><h3>Get the server details</h3><p>Once you are in the Discord, the server address and version are shared there. If anything is confusing, ask in the Discord and someone will point you the right way.</p></div></li>
+<li><div><h3>Say hi and start building</h3><p>Introduce yourself, pick a spot, and ask your neighbours before building close. Then make something that looks great from far away.</p></div></li>
+</ol>
+</div>
+</section>
+
+<section class="sec alt">
+<div class="wrap">
+<h2>Quick questions</h2>
+<p class="sec-intro">The things new players ask most. Tap a question to open it.</p>
+<div class="rules"><details class="rule faq"><summary><span>What does semi-vanilla mean?</span></summary><p>It plays like normal survival with a few light quality-of-life tweaks and no shortcuts. The <a href="features.html">Features page</a> has the full explanation.</p></details><details class="rule faq"><summary><span>Where do I find the server address?</span></summary><p>In our Discord. We keep it there so it is always up to date, and so we can say hello when you arrive.</p></details><details class="rule faq"><summary><span>Can I build anywhere?</span></summary><p>Mostly, yes. Explore, pick a spot you like, and ask nearby players before building close to them. See <a href="rules.html">the rules</a> for the polite details.</p></details><details class="rule faq"><summary><span>Someone broke a rule. What do I do?</span></summary><p>Tell staff in the Discord with screenshots or coordinates. Please do not take revenge, it only makes the paperwork longer.</p></details><details class="rule faq"><summary><span>Can I bring friends?</span></summary><p>Friends are welcome. Send them the Discord invite and they can follow the same steps as you.</p></details></div>
+</div>
+</section>
+<section class="band">
+<div class="wrap">
+<p>Step one is the easy one. Hop in.</p>
+<a class="btn" href="https://discord.gg/aFs7jXPnTN" target="_blank" rel="noopener">Join the Discord</a>
+</div>
+</section>
+</main>
+<footer class="foot">
+<div class="wrap">
+<a class="brand" href="index.html" aria-label="Ender SMP home"><img src="logo.png" alt="Ender SMP" width="1024" height="491"></a>
+<nav aria-label="Footer"><a href="index.html">Home</a><a href="features.html">Features</a><a href="rules.html">Rules</a><a href="join.html">How to join</a><a href="discord.html">Discord</a><a href="https://discord.gg/aFs7jXPnTN" target="_blank" rel="noopener">Discord invite</a></nav>
+<small>Ender SMP is a fan-run community server. It is not affiliated with, endorsed by or associated with Mojang, Microsoft or Hermitcraft. Minecraft is a trademark of Mojang Synergies AB.</small>
+<small>&copy; 2026 Ender SMP</small>
+</div>
+</footer>
+<script>
+(function () {
+  var c = document.getElementById('stars');
+  if (c && c.getContext) {
+    var x = c.getContext('2d'), w = 0, h = 0, p = [];
+    var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var size = function () {
+      w = c.width = c.offsetWidth; h = c.height = c.offsetHeight;
+      var n = Math.min(80, Math.floor(w * h / 9000));
+      p = [];
+      for (var i = 0; i < n; i++) {
+        p.push({ x: Math.random() * w, y: Math.random() * h, s: 2 + Math.floor(Math.random() * 3), v: 0.08 + Math.random() * 0.25, a: 0.2 + Math.random() * 0.6 });
+      }
+    };
+    var draw = function () {
+      x.clearRect(0, 0, w, h);
+      var col = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#b765ff';
+      x.fillStyle = col;
+      for (var i = 0; i < p.length; i++) {
+        var q = p[i];
+        x.globalAlpha = q.a;
+        x.fillRect(Math.round(q.x), Math.round(q.y), q.s, q.s);
+        if (!calm) { q.y -= q.v; if (q.y < -4) { q.y = h + 4; q.x = Math.random() * w; } }
+      }
+      x.globalAlpha = 1;
+      if (!calm) requestAnimationFrame(draw);
+    };
+    size(); draw();
+    window.addEventListener('resize', function () { size(); if (calm) draw(); });
+  }
+  var btns = document.querySelectorAll('[data-copy]');
+  Array.prototype.forEach.call(btns, function (b) {
+    b.addEventListener('click', function () {
+      var text = b.getAttribute('data-copy');
+      var status = document.getElementById('copy-status');
+      var done = function (msg) { if (status) status.textContent = msg; };
+      var fallback = function () {
+        var el = document.getElementById('invite-text');
+        if (el && window.getSelection) {
+          var r = document.createRange(); r.selectNodeContents(el);
+          var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        }
+        done('Link selected. Press Ctrl+C (or long-press) to copy it.');
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { done('Copied. Go forth and join.'); }, fallback);
+      } else { fallback(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
